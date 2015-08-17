@@ -1,0 +1,2 @@
+# MEANbeta
+MEAN Stack Application

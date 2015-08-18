@@ -64,7 +64,7 @@ Message.remove({})
             });
     });
 
-
+app.locals.pretty = true;
 
 app.get('/partials/:partialName', function(req, res) {
     res.render('partials/' + req.params.partialName)

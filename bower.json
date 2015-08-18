@@ -1,0 +1,30 @@
+{
+  "name": "MEANbeta",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pan196/MEANbeta",
+  "authors": [
+    "pan196 <petrov.pan196@gmail.com>"
+  ],
+  "description": "MEAN Stack Application",
+  "main": "server.js",
+  "keywords": [
+    "mean"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/scripts/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "toastr": "~2.1.2",
+    "angular": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  }
+}

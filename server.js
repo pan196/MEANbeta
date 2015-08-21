@@ -42,35 +42,13 @@ database.on('error', function(err) {
     console.log('Database error:\n' + err);
 });
 
-var messageSchema = mongoose.Schema({
-    message: String
-});
-
-var Message = mongoose.model('Message', messageSchema);
-var messageFromDB;
-
-
-Message.remove({})
-    .exec(function(err) {
-        if (err) {
-            console.log('Messages could not be cleared:\n' + err);
-            return;
-        }
-        console.log('Messages deleted...');
-
-        Message.create({message: 'Hi from Mongoose'})
-            .then(function(model) {
-                messageFromDB = model.message;
-            });
-    });
-
 app.locals.pretty = true;
 
-app.get('/partials/:partialName', function(req, res) {
-    res.render('partials/' + req.params.partialName)
+app.get('/partials/:partialArea/:partialName', function(req, res) {
+    res.render('partials/' + req.params.partialArea + '/' + req.params.partialName)
 });
 app.get('*', function (req, res) {
-    res.render('index', {message: messageFromDB});
+    res.render('index');
 });
 
 app.listen(port);

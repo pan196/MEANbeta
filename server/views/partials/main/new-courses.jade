@@ -1,0 +1,6 @@
+div(data-ng-repeat="course in courses | orderBy: 'published' | limitTo: 10")
+    div.row
+        div.col-md-2
+            | {{ course.published | date: 'MM/dd/yy' }}
+        div.col-md-10
+            | {{ course.name }}

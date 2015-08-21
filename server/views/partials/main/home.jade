@@ -1,0 +1,15 @@
+div.container
+    div.jumbotron
+        h1
+            | {{ hello }}
+    div.row
+        div.col-md-6
+            div.panel
+                div.panel-heading
+                    | Featured
+                div.panel-body(data-ng-include="'partials/main/featured-courses'")
+        div.col-md-6
+            div.panel
+                div.panel-heading
+                    | New
+                div.panel-body(data-ng-include="'partials/main/new-courses'")

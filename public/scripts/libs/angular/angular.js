@@ -2573,7 +2573,7 @@ function publishExternalAPI(angular) {
  * - [`children()`](http://api.jquery.com/children/) - Does not support selectors
  * - [`clone()`](http://api.jquery.com/clone/)
  * - [`contents()`](http://api.jquery.com/contents/)
- * - [`css()`](http://api.jquery.com/css/) - Only retrieves inline-styles, does not call `getComputedStyle()`. As a setter, does not convert numbers to strings or append 'px'.
+ * - [`css()`](http://api.jquery.com/css/) - Only retrieves inline-style, does not call `getComputedStyle()`. As a setter, does not convert numbers to strings or append 'px'.
  * - [`data()`](http://api.jquery.com/data/)
  * - [`detach()`](http://api.jquery.com/detach/)
  * - [`empty()`](http://api.jquery.com/empty/)
@@ -5192,7 +5192,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @param {DOMElement} parent the parent element which will append the element as
        *   a child (so long as the after element is not present)
        * @param {DOMElement=} after the sibling element after which the element will be appended
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5218,7 +5218,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @param {DOMElement} parent the parent element which will append the element as
        *   a child (so long as the after element is not present)
        * @param {DOMElement=} after the sibling element after which the element will be appended
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5239,7 +5239,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * digest once the animation has completed.
        *
        * @param {DOMElement} element the element which will be removed from the DOM
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5263,7 +5263,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @param {DOMElement} element the element which the CSS classes will be applied to
        * @param {string} className the CSS class(es) that will be added (multiple classes are separated via spaces)
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5287,7 +5287,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        *
        * @param {DOMElement} element the element which the CSS classes will be applied to
        * @param {string} className the CSS class(es) that will be removed (multiple classes are separated via spaces)
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5312,7 +5312,7 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @param {DOMElement} element the element which the CSS classes will be applied to
        * @param {string} add the CSS class(es) that will be added (multiple classes are separated via spaces)
        * @param {string} remove the CSS class(es) that will be removed (multiple classes are separated via spaces)
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -5328,19 +5328,19 @@ var $AnimateProvider = ['$provide', function($provide) {
        * @name $animate#animate
        * @kind function
        *
-       * @description Performs an inline animation on the element which applies the provided to and from CSS styles to the element.
+       * @description Performs an inline animation on the element which applies the provided to and from CSS style to the element.
        * If any detected CSS transition, keyframe or JavaScript matches the provided className value then the animation will take
-       * on the provided styles. For example, if a transition animation is set for the given className then the provided from and
-       * to styles will be applied alongside the given transition. If a JavaScript animation is detected then the provided styles
+       * on the provided style. For example, if a transition animation is set for the given className then the provided from and
+       * to style will be applied alongside the given transition. If a JavaScript animation is detected then the provided style
        * will be given in as function paramters into the `animate` method (or as apart of the `options` parameter).
        *
-       * @param {DOMElement} element the element which the CSS styles will be applied to
-       * @param {object} from the from (starting) CSS styles that will be applied to the element and across the animation.
-       * @param {object} to the to (destination) CSS styles that will be applied to the element and across the animation.
+       * @param {DOMElement} element the element which the CSS style will be applied to
+       * @param {object} from the from (starting) CSS style that will be applied to the element and across the animation.
+       * @param {object} to the to (destination) CSS style that will be applied to the element and across the animation.
        * @param {string=} className an optional CSS class that will be applied to the element for the duration of the animation. If
        *    this value is left as empty then a CSS class of `ng-inline-animate` will be applied to the element.
        *    (Note that if no animation is detected then this value will not be appplied to the element.)
-       * @param {object=} options an optional collection of options/styles that will be applied to the element
+       * @param {object=} options an optional collection of options/style that will be applied to the element
        *
        * @return {Promise} the animation callback promise
        */
@@ -22950,7 +22950,7 @@ var ngCloakDirective = ngDirective({
  * easily be called from the angular markup. Any changes to the data are automatically reflected
  * in the View without the need for a manual update.
  *
- * Two different declaration styles are included below:
+ * Two different declaration style are included below:
  *
  * * one binds methods and properties directly onto the controller using `this`:
  * `ng-controller="SettingsController1 as settings"`
@@ -23165,9 +23165,9 @@ var ngControllerDirective = [function() {
  * (among other things). Angular makes use of this in the {@link $parse} service to provide a 30%
  * increase in the speed of evaluating Angular expressions.
  *
- * * `unsafe-inline`: this rule forbids apps from inject custom styles into the document. Angular
+ * * `unsafe-inline`: this rule forbids apps from inject custom style into the document. Angular
  * makes use of this to include some CSS rules (e.g. {@link ngCloak} and {@link ngHide}).
- * To make these directives work when a CSP rule is blocking inline styles, you must link to the
+ * To make these directives work when a CSP rule is blocking inline style, you must link to the
  * `angular-csp.css` in your HTML manually.
  *
  * If you do not provide `ngCsp` then Angular tries to autodetect if CSP is blocking unsafe-eval
@@ -23189,29 +23189,29 @@ var ngControllerDirective = [function() {
  * You can specify which of the CSP related Angular features should be deactivated by providing
  * a value for the `ng-csp` attribute. The options are as follows:
  *
- * * no-inline-style: this stops Angular from injecting CSS styles into the DOM
+ * * no-inline-style: this stops Angular from injecting CSS style into the DOM
  *
  * * no-unsafe-eval: this stops Angular from optimising $parse with unsafe eval of strings
  *
  * You can use these values in the following combinations:
  *
  *
- * * No declaration means that Angular will assume that you can do inline styles, but it will do
+ * * No declaration means that Angular will assume that you can do inline style, but it will do
  * a runtime check for unsafe-eval. E.g. `<body>`. This is backwardly compatible with previous versions
  * of Angular.
  *
  * * A simple `ng-csp` (or `data-ng-csp`) attribute will tell Angular to deactivate both inline
- * styles and unsafe eval. E.g. `<body ng-csp>`. This is backwardly compatible with previous versions
+ * style and unsafe eval. E.g. `<body ng-csp>`. This is backwardly compatible with previous versions
  * of Angular.
  *
  * * Specifying only `no-unsafe-eval` tells Angular that we must not use eval, but that we can inject
- * inline styles. E.g. `<body ng-csp="no-unsafe-eval">`.
+ * inline style. E.g. `<body ng-csp="no-unsafe-eval">`.
  *
- * * Specifying only `no-inline-style` tells Angular that we must not inject styles, but that we can
+ * * Specifying only `no-inline-style` tells Angular that we must not inject style, but that we can
  * run eval - no automcatic check for unsafe eval will occur. E.g. `<body ng-csp="no-inline-style">`
  *
  * * Specifying both `no-unsafe-eval` and `no-inline-style` tells Angular that we must not inject
- * styles nor use eval, which is the same as an empty: ng-csp.
+ * style nor use eval, which is the same as an empty: ng-csp.
  * E.g.`<body ng-csp="no-inline-style;no-unsafe-eval">`
  *
  * @example
@@ -27360,13 +27360,13 @@ var NG_HIDE_IN_PROGRESS_CLASS = 'ng-hide-animate';
  * This also becomes a bigger issue when dealing with CSS frameworks.
  *
  * By using !important, the show and hide behavior will work as expected despite any clash between CSS selector
- * specificity (when !important isn't used with any conflicting styles). If a developer chooses to override the
+ * specificity (when !important isn't used with any conflicting style). If a developer chooses to override the
  * styling to change how to hide an element then it is just a matter of using !important in their own CSS code.
  *
  * ### Overriding `.ng-hide`
  *
  * By default, the `.ng-hide` class will style the element with `display: none!important`. If you wish to change
- * the hide behavior with ngShow/ngHide then this can be achieved by restating the styles for the `.ng-hide`
+ * the hide behavior with ngShow/ngHide then this can be achieved by restating the style for the `.ng-hide`
  * class CSS. Note that the selector that needs to be used is actually `.ng-hide:not(.ng-hide-animate)` to cope
  * with extra animation classes that can be added.
  *
@@ -27536,13 +27536,13 @@ var ngShowDirective = ['$animate', function($animate) {
  * This also becomes a bigger issue when dealing with CSS frameworks.
  *
  * By using !important, the show and hide behavior will work as expected despite any clash between CSS selector
- * specificity (when !important isn't used with any conflicting styles). If a developer chooses to override the
+ * specificity (when !important isn't used with any conflicting style). If a developer chooses to override the
  * styling to change how to hide an element then it is just a matter of using !important in their own CSS code.
  *
  * ### Overriding `.ng-hide`
  *
  * By default, the `.ng-hide` class will style the element with `display: none!important`. If you wish to change
- * the hide behavior with ngShow/ngHide then this can be achieved by restating the styles for the `.ng-hide`
+ * the hide behavior with ngShow/ngHide then this can be achieved by restating the style for the `.ng-hide`
  * class in CSS:
  *
  * ```css

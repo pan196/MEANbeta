@@ -13,7 +13,7 @@ app.set('views', __dirname + '/server/views');
 app.use(bodyParser());
 app.use(stylus.middleware(
     {
-        src: __dirname + 'public',
+        src: __dirname + '/public',
         compile: function(str, path) {
             return stylus(str).set('filename', path);
         }

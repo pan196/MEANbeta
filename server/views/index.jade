@@ -1,7 +1,19 @@
 extends includes/layout
 
 block main
-    h2
-        | Hi from index
-    div(data-ng-view)
-    h3= message
+    header.navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href="#/")
+                    | MEANbeta
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="#/")
+                            | Home
+    section
+        div(data-ng-view)
+
+    footer.container
+        p.text-center
+            | &copy; MEANbeta

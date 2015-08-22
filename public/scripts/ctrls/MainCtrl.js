@@ -1,6 +1,6 @@
 app.controller('MainCtrl', function($scope) {
     $scope.hello = 'Hi from angular!';
-
+    $('#toast-container').addClass('toast-bottom-right');
     $scope.courses = [
         { name: 'C# for Sociopaths', featured: true, published: new Date('10/5/2013') },
         { name: 'C# for Non-Sociopaths', featured: true, published: new Date('10/12/2013') },

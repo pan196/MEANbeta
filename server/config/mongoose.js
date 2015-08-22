@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    passport = require('passport');
+    passport = require('passport'),
+    crypto = require('crypto'),
     LocalPassport = require('passport-local');
 
 module.exports = function(config) {
@@ -22,9 +23,17 @@ module.exports = function(config) {
     var userSchema = mongoose.Schema({
         username: String,
         firstName: String,
-        lastName: String
-        //salt: String,
-        //hashPass: String
+        lastName: String,
+        salt: String,
+        hashedPass: String
+    });
+
+    userSchema.method({
+        verify: function(pass) {
+            if (hashPass(this.salt, pass) === this.hashedPass) {
+
+            }
+        }
     });
 
     var User = mongoose.model('User', userSchema);
@@ -35,9 +44,18 @@ module.exports = function(config) {
             return;
         }
         if (collection.length == 0) {
-            User.create({username: 'pan196', fistName: 'Peter', lastName: 'Petrov'});
-            User.create({username: 'mincho', firstName: 'Mincho', lastName: 'Minchev'});
-            User.create({username: 'doncho', firstName: 'Doncho', lastName: 'Donchov'});
+            var salt;
+            var hashedPass;
+
+            salt = generateSalt();
+            hashedPass = hashPass(salt, 'Peter');
+            User.create({username: 'pan196', firstName: 'Peter', lastName: 'Petrov', salt: salt, hashedPass: hashedPass});
+            salt = generateSalt();
+            hashedPass = hashPass(salt, 'Mincho');
+            User.create({username: 'mincho', firstName: 'Mincho', lastName: 'Minchev', salt: salt, hashedPass: hashedPass});
+            salt = generateSalt();
+            hashedPass = hashPass(salt, 'Doncho');
+            User.create({username: 'doncho', firstName: 'Doncho', lastName: 'Donchov', salt: salt, hashedPass: hashedPass});
             console.log('Users added to database....');
         }
     });
@@ -72,3 +90,13 @@ module.exports = function(config) {
         });
     });
 };
+
+function generateSalt() {
+    return crypto.randomBytes(128).toString('base64');
+}
+
+function hashPass(salt, pass) {
+    var hmac = crypto.createHmac('sha1', salt);
+    return hmac.update(pass).digest('hex');
+}
+

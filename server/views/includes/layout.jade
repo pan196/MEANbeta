@@ -10,3 +10,7 @@ html
         block main
 
         include scripts
+
+        if !!currentUser
+            script.
+                window.bootstrapedUserObject = !{JSON.stringify(currentUser)}

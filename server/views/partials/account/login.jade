@@ -1,6 +1,15 @@
 div.navbar-right(data-ng-controller="LoginCtrl")
-    form.navbar-form
+    form.navbar-form(data-ng-hide="identity.isAuthenticated()")
         .form-group
             input.form-control(type="text", placeholder="Username" data-ng-model="user.username")
             input.form-control(type="password" placeholder="Password" data-ng-model="user.password")
         button.btn.btn-primary(data-ng-click="login(user)") Login
+    ul.nav.navbar-nav.navbar-right(data-ng-show="identity.isAuthenticated()")
+        li.dropdown
+            a.dropdown-toggle(href="#/", data-toggle="dropdown")
+                | {{ identity.currentUser.firstName + ' ' + identity.currentUser.lastName }}
+                b.caret
+            ul.dropdown-menu
+                li
+                    a(href="#/", data-ng-click="logout()")
+                        | Sign Out

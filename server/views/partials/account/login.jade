@@ -3,13 +3,18 @@ div.navbar-right(data-ng-controller="LoginCtrl")
         .form-group
             input.form-control(type="text", placeholder="Username" data-ng-model="user.username")
             input.form-control(type="password" placeholder="Password" data-ng-model="user.password")
-        button.btn.btn-primary(data-ng-click="login(user)") Login
+        button.btn.btn-success(data-ng-click="login(user)") Log In
+        a.btn.btn-primary(href="#/signup") Sign Up
     ul.nav.navbar-nav.navbar-right(data-ng-show="identity.isAuthenticated()")
         li.dropdown
-            a.dropdown-toggle(href="#/", data-toggle="dropdown")
+            a.dropdown-toggle(href="", data-toggle="dropdown")
                 | {{ identity.currentUser.firstName + ' ' + identity.currentUser.lastName }}
                 b.caret
             ul.dropdown-menu
+                li(data-ng-show="identity.currentUser.isAdmin()")
+                    a(href="#/admin/users") Users
+                li(data-ng-show="identity.isAuthenticated()")
+                    a(href="#/profile") Profile
                 li
                     a(href="#/", data-ng-click="logout()")
                         | Sign Out

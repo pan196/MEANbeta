@@ -1,0 +1,5 @@
+.container
+   h2 {{ c.name }}
+   p {{ c.published | date }}
+   ul
+       li(data-ng-repeat="tag in c.tags") {{ tag }}

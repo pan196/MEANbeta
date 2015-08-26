@@ -8,9 +8,6 @@ app.controller('LoginCtrl', function($scope, $http, $location, notifier, identit
             .then(function(success) {
                 if (success) {
                     notifier.success('Successful login!', TOAST_SETTINGS);
-
-                    console.log($scope.identity.currentUser);
-
                 } else {
                     notifier.error('Login failed!', TOAST_SETTINGS);
                 }

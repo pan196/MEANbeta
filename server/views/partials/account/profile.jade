@@ -1,0 +1,25 @@
+div.container
+    div.well
+        form.form-horizontal(name="profileForm")
+            fieldset
+                legend
+                    | User Registration
+                .form-group
+                    label.col-md-2.control-label(for="first-name")
+                        | First Name
+                    .col-md-10
+                        input.form-control(type="text" placeholder="First Name" id="first-name" data-ng-model="user.firstName" required)
+                .form-group
+                    label.col-md-2.control-label(for="last-name")
+                        | Last Name
+                    .col-md-10
+                        input.form-control(type="text" placeholder="Last Name" id="last-name" data-ng-model="user.lastName" required)
+                .form-group
+                    label.col-md-2.control-label(for="pass")
+                        | Password
+                    .col-md-10
+                        input.form-control(type="password" placeholder="Password" id="pass" data-ng-model="user.password")
+                .form-group
+                    .col-md-10.col-md-offset-2
+                        button.btn.btn-success(data-ng-click="update(user)" data-ng-disabled="profileForm.$invalid " type="submit") Update
+                        a.btn.btn-primary(href="#/" type="reset") Cancel
